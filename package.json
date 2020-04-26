@@ -1,6 +1,6 @@
 {
   "name": "ts-transformer-ajv",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript transformer to validate types in runtime using JSON Schema and AJV",
   "author": "Rogério Munhoz <roz@rjmunhoz.me>",
   "license": "GPL-3.0",

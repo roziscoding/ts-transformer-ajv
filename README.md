@@ -32,15 +32,13 @@ Now, instead of running `tsc` to build your app, just use `ttsc`, and *voilà*!
 
 ## Usage
 
-ts-transform-ajv offers you to functions to validate objects agaist a given type: the compiled validator function, and an inline validate function. Their usage is described below:
+ts-transform-ajv offers you two functions to validate objects agaist a given type: the compiled validator function, and an inline validate function. Their usage is described below:
 
 ### Compiled validator function - `getValidatorFromType`
 
-This uses AJV's `compile` function to generate a static function that validates objects agains the generated JSON Schema. Use it as follows:
+This uses AJV's `compile` function to generate a static function that validates objects against the generated JSON Schema. Use it as follows:
 
 ```typescript
-import util from 'util'
-import readline from 'readline'
 import { getValidatorFromType } from 'ts-transformer-ajv'
 
 type LoginParams = {
@@ -73,7 +71,7 @@ The return value is the result of calling `ajv.compile`, so you can check either
 
 ### Inline validation - `validateTypeWithAjv`
 
-Allows you to validate an object agains a given type using `ajv.validate`. Since we're now calling the validate function directly, the return value is an object with the following type:
+Allows you to validate an object against a given type using `ajv.validate`. Since we're now calling the validate function directly, the return value is an object with the following type:
 
 ```typescript
 type ValidationResult = {
@@ -87,7 +85,7 @@ You can use this function like so:
 ```typescript
 import util from 'util'
 import readline from 'readline'
-import { getValidatorFromType, validateTypeWithAjv } from 'ts-transformer-ajv'
+import { validateTypeWithAjv } from 'ts-transformer-ajv'
 
 type LoginParams = {
     app: string
@@ -138,7 +136,7 @@ To acomplish typescript-like behaviour, you must pass `{ required: true }` to th
 
 ## Extra JSON Schema Properties
 
-It's true that JSON Schema supports much more validation options than typescript does. For instance, it accepts `max` and `min` for numbers
+It's true that JSON Schema supports much more validation options than typescript does. For example: it accepts `max` and `min` for numbers
 or `maxLength` and `minLength` for strings.
 
 To solve that problem, `typescript-json-schema` uses JSDoc annotations. You can check them out on [typescript-json-schema's documentation](https://www.npmjs.com/package/typescript-json-schema#annotations).
